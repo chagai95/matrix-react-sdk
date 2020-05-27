@@ -214,6 +214,10 @@ limitations under the License.
     mask-image: url('$(res)/img/feather-customised/video.svg');
 }
 
+.mx_MessageComposer_pstncall::before {
+    mask-image: url('$(res)/img/feather-customised/pstn.svg');
+}
+
 .mx_MessageComposer_stickers::before {
     mask-image: url('$(res)/img/feather-customised/face.svg');
 }
