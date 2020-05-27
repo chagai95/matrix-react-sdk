@@ -350,6 +350,15 @@ function _onAction(payload) {
                 }
             }
             break;
+        case 'place_pstn_call':
+            dis.dispatch({
+                action: "place_conference_call",
+                room_id: payload.room_id,
+                type: payload.type,
+                remote_element: payload.remote_element,
+                local_element: payload.local_element,
+            });
+            break;
         case 'place_conference_call':
             console.info("Place conference call in %s", payload.room_id);
             _startCallApp(payload.room_id, payload.type);
