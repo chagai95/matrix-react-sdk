@@ -78,6 +78,26 @@ function VideoCallButton(props) {
 VideoCallButton.propTypes = {
     roomId: PropTypes.string.isRequired,
 };
+    
+function PSTNCallButton(props) {
+    const AccessibleButton = sdk.getComponent('elements.AccessibleButton');
+    const onCallClick = (ev) => {
+        dis.dispatch({
+            action: 'place_pstn_call',
+            type: ev.shiftKey ? "screensharing" : "video",
+            room_id: props.roomId,
+        });
+    };
+
+    return <AccessibleButton className="mx_MessageComposer_button mx_MessageComposer_pstncall"
+                             onClick={onCallClick}
+                             title={_t('PSTN call')}
+    />;
+}
+
+PSTNCallButton.propTypes = {
+    roomId: PropTypes.string.isRequired,
+};
 
 function HangupButton(props) {
     const AccessibleButton = sdk.getComponent('elements.AccessibleButton');
@@ -348,6 +368,7 @@ export default class MessageComposer extends React.Component {
                     controls.push(
                         <CallButton key="controls_call" roomId={this.props.room.roomId} />,
                         <VideoCallButton key="controls_videocall" roomId={this.props.room.roomId} />,
+                        <PSTNCallButton key="controls_pstncall" roomId={this.props.room.roomId} />,
                     );
                 }
             }
