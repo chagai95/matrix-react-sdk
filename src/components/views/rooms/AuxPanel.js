@@ -182,6 +182,7 @@ export default createReactClass({
                         {
                             'voiceText': (sub) => <a onClick={(event)=>{ this.onConferenceNotificationClick(event, 'voice');}} href="#">{ sub }</a>,
                             'videoText': (sub) => <a onClick={(event)=>{ this.onConferenceNotificationClick(event, 'video');}} href="#">{ sub }</a>,
+                            'pstnText': (sub) => <a onClick={(event)=>{ this.onConferenceNotificationClick(event, 'pstn');}} href="#">{ sub }</a>,
                         },
                     ) }
                 </span>);
